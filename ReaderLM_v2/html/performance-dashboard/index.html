@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>ReaderLM performance</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect fill='%230a0c0f' width='16' height='16'/%3E%3Crect fill='%23c6f135' x='3' y='3' width='10' height='10' rx='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="rail">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <div class="brand-name">ReaderLM</div>
+          <div class="brand-sub">Performance</div>
+        </div>
+      </div>
+      <div id="rail-list" class="rail-list" role="tablist" aria-label="Runs"></div>
+      <div id="rail-foot" class="rail-foot"></div>
+    </aside>
+    <main>
+      <header class="top">
+        <div class="top-copy">
+          <div id="kicker" class="kicker"></div>
+          <h1 id="title"></h1>
+          <p id="subtitle"></p>
+        </div>
+        <div class="pager" title="Left and right arrow keys cycle overview and each test">
+          <button id="prev" type="button" aria-label="Previous view">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="pager-readout">
+            <div id="pager-count"></div>
+            <div class="keyhint"><kbd>←</kbd><kbd>→</kbd></div>
+          </div>
+          <button id="next" type="button" aria-label="Next view">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </header>
+      <div id="stage"></div>
+    </main>
+  </div>
+  <div id="tip" class="tip" role="tooltip" hidden></div>
+  <script src="runs.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

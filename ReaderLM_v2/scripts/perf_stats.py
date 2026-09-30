@@ -413,8 +413,27 @@ def measure_chat(
     return text, report
 
 
+def _publish_dashboard() -> None:
+    dashboard = Path(__file__).resolve().parents[1] / "html" / "performance-dashboard" / "refresh_data.py"
+    if not dashboard.is_file():
+        return
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("readerlm_dashboard_refresh", dashboard)
+    if spec is None or spec.loader is None:
+        return
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    count = module.publish()
+    print(f"Updated performance dashboard ({count} runs)")
+
+
 def write_performance(json_path: Path, report: dict) -> Path:
     json_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
     text_path = json_path.with_suffix(".txt")
     text_path.write_text(_text_report(report), encoding="utf-8")
+    try:
+        _publish_dashboard()
+    except Exception as exc:
+        print(f"Performance dashboard was not updated: {exc}")
     return text_path
