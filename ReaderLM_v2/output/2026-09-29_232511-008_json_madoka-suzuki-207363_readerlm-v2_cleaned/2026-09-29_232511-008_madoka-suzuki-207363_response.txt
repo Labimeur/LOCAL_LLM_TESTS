@@ -1,0 +1,76 @@
+```json
+[
+  {
+    "season": "2017-18",
+    "team": "Cobourg Cougars",
+    "gp": 53,
+    "g": 7,
+    "a": 9,
+    "pts": 16
+  },
+  {
+    "season": "2018-19",
+    "team": "Wellington Dukes",
+    "gp": 40,
+    "g": 9,
+    "a": 6,
+    "pts": 15
+  },
+  {
+    "season": "2018-19",
+    "team": "Kemptville 73s",
+    "gp": 21,
+    "g": 10,
+    "a": 11,
+    "pts": 21
+  },
+  {
+    "season": "2019-20",
+    "team": "Kemptville 73s",
+    "gp": 61,
+    "g": 27,
+    "a": 32,
+    "pts": 59
+  },
+  {
+    "season": "2020-21",
+    "team": "Long Island University",
+    "gp": 8,
+    "g": 0,
+    "a": 1,
+    "pts": 1
+  },
+  {
+    "season": "2021-22",
+    "team": "Carleton University",
+    "gp": 8,
+    "g": 1,
+    "a": 3,
+    "pts": 4
+  },
+  {
+    "season": "2022-23",
+    "team": "Carleton University",
+    "gp": 26,
+    "g": 4,
+    "a": 3,
+    "pts": 7
+  },
+  {
+    "season": "2023-24",
+    "team": "Carleton University",
+    "gp": 10,
+    "g": 1,
+    "a": 1,
+    "pts": 2
+  },
+  {
+    "season": "2024-25",
+    "team": "Carleton University",
+    "gp": 28,
+    "g": 6,
+    "a": 9,
+    "pts": 15
+  }
+]
+```

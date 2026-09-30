@@ -37,7 +37,9 @@ Each finished run also refreshes the local performance dashboard. Start it with:
 python ReaderLM_v2\html\performance-dashboard\serve.py
 ```
 
-That serves `http://127.0.0.1:8765/index.html` and opens the page. To rebuild its data without running a test:
+That serves `http://127.0.0.1:8765/index.html` and opens the page. The same server has a player search at `http://127.0.0.1:8765/players.html` (linked from the performance page). Search a name, select a player, and choose Import stats. LM Studio must already be serving ReaderLM-v2. The season table shows on that page, and the run appears on the performance dashboard after a reload.
+
+To rebuild the performance data without running a test:
 
 ```text
 python ReaderLM_v2\html\performance-dashboard\refresh_data.py
@@ -52,6 +54,7 @@ ReaderLM_v2/
   samples/           input HTML (gistfile1.txt is a hockeydb.com player page)
   output/            one folder per run
   html/performance-dashboard/   local view of performance reports
+  html/player-import/           search hockeydb and import a player's seasons
 ```
 
 | Script | Role |

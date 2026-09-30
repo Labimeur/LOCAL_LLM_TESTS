@@ -1,0 +1,122 @@
+[
+  {
+    "season": "2014-15",
+    "team": "London Nationals",
+    "gp": 1,
+    "g": 0,
+    "a": 1,
+    "pts": 1
+  },
+  {
+    "season": "2015-16",
+    "team": "Owen Sound Attack",
+    "gp": 63,
+    "g": 20,
+    "a": 18,
+    "pts": 38
+  },
+  {
+    "season": "2016-17",
+    "team": "Owen Sound Attack",
+    "gp": 65,
+    "g": 45,
+    "a": 51,
+    "pts": 96
+  },
+  {
+    "season": "2017-18",
+    "team": "Owen Sound Attack",
+    "gp": 64,
+    "g": 42,
+    "a": 58,
+    "pts": 100
+  },
+  {
+    "season": "2017-18",
+    "team": "Chicago Wolves",
+    "gp": null,
+    "g": null,
+    "a": null,
+    "pts": null
+  },
+  {
+    "season": "2018-19",
+    "team": "Owen Sound Attack",
+    "gp": 30,
+    "g": 22,
+    "a": 23,
+    "pts": 45
+  },
+  {
+    "season": "2018-19",
+    "team": "Guelph Storm",
+    "gp": 29,
+    "g": 12,
+    "a": 37,
+    "pts": 49
+  },
+  {
+    "season": "2019-20",
+    "team": "Montreal Canadiens",
+    "gp": 71,
+    "g": 13,
+    "a": 28,
+    "pts": 41
+  },
+  {
+    "season": "2020-21",
+    "team": "Montreal Canadiens",
+    "gp": 56,
+    "g": 15,
+    "a": 26,
+    "pts": 41
+  },
+  {
+    "season": "2021-22",
+    "team": "Montreal Canadiens",
+    "gp": 82,
+    "g": 21,
+    "a": 40,
+    "pts": 61
+  },
+  {
+    "season": "2022-23",
+    "team": "Montreal Canadiens",
+    "gp": 82,
+    "g": 26,
+    "a": 40,
+    "pts": 66
+  },
+  {
+    "season": "2023-24",
+    "team": "Montreal Canadiens",
+    "gp": 82,
+    "g": 33,
+    "a": 44,
+    "pts": 77
+  },
+  {
+    "season": "2024-25",
+    "team": "Montreal Canadiens",
+    "gp": 82,
+    "g": 30,
+    "a": 59,
+    "pts": 89
+  },
+  {
+    "season": "2025-26",
+    "team": "Montreal Canadiens",
+    "gp": 82,
+    "g": 29,
+    "a": 72,
+    "pts": 101
+  },
+  {
+    "season": "2026-27",
+    "team": "Montreal Canadiens",
+    "gp": 1,
+    "g": 0,
+    "a": 0,
+    "pts": 0
+  }
+]

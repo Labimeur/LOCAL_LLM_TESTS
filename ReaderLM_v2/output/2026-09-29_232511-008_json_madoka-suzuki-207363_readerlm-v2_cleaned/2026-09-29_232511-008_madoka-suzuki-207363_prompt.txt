@@ -1,0 +1,380 @@
+Extract the specified information from a list of seasons and present it in a structured JSON format.
+
+Only extract these fields:
+- season
+- team
+- gp
+- g
+- a
+- pts
+```html
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Madoka Suzuki Hockey Stats and Profile at hockeydb.com</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<div id="hdb_logo_div" style="float:left">
+   <a href="/">          
+   <img id="hdb_logo" src="/images/logo.gif" alt="hockey DB" width="166" height="75" style="border:0; height: 75px; width: 166px;" /></a>
+</div>
+
+<div id="hdb_logo_divv" style="float:left">
+   <a href="/">          
+   <img id="hdb_logov" src="/images/hdb-vert-2.gif" alt="hockey DB" width="40" style="border:0;" /></a>
+</div>
+
+  <div id="headerbar">
+     <div id="hb_league">
+        <a href="/ihdb/stats/leagues.html">
+          <img src="/images/menu_league.gif" alt="search by league" width="126" height="48" style="border:0;" id="menu_league" /></a>
+     </div>
+     <div id="hb_team">
+        <a href="/ihdb/stats/teams.html">
+          <img src="/images/menu_team.gif" alt="team" width="116" height="48" style="border:0;" id="menu_team" /></a>
+     </div>
+     <div id="hb_scoreboard">
+        <a href="/scoreboard">
+          <img src="/images/menu_mr.gif" alt="morning report" width="112" height="48" style="border:0;" id="menu_mr" /></a>
+     </div>
+     <div id="hb_contact">
+        <a href="/feedback.html" >
+          <img src="/images/menu_contact.gif" alt="contact us" width="93" height="48" style="border:0;" id="menu_contact" /></a>
+     </div>
+   </div>
+
+<div id="hb_black">
+   <div id="hb_image">
+     <img src="/images/hdr_hockeyDB.gif" alt="home" />
+   </div>
+
+   <div id="hb_red">
+       <form name="player" method="get" action="/ihdb/stats/find_player.php">
+         <div id="hb_form1"><input autocorrect="off" type="text" name="full_name" class="inp2" id="hb_search_resp"/></div>
+         <div id="hb_form2"><input name="imageField" type="image" alt="search for player" src="/images/btn_player-search.gif" /></div>
+       </form>
+   </div>
+</div>
+
+<div id="topad" class="sponsor-top">
+   <div id='top_leaderboard'>
+   
+   </div>
+</div>
+
+<div style="clear: left"></div>
+
+
+<div id="mt" class="multitable">
+<div class="tablebg st ">
+<div class="vitals">
+<div itemscope itemtype="https://schema.org/Person" class="vw">
+<div class="v1">
+<h1 itemprop="name" class="title">Madoka Suzuki</h1>
+<div class="v1-1">
+Forward -- shoots R<br />
+<span class="bdate">Born Jan 14 2000 -- </span><span class="hometown" itemprop="homeLocation">Belleville, ONT</span> <br />[26 yrs. ago] <br />Height 5.11 -- Weight 175<span class="vitals_metric"> [180 cm/79 kg]</span><br />
+</div>
+</div>
+<div class="vd">
+</div>
+</div>
+<div class="v1-5">
+&nbsp;
+</div>
+<div class="vtr" style="clear:left" id="content207363">
+</div>
+<div class="social_container">
+</div>
+<div class="v3">
+</div>
+</div>
+<table class="sortable autostripe st reg" id="207363">
+<thead>
+<tr>
+<th colspan="3" class = "l" style="background-color:white; padding:0px;">
+</th>
+<th class="hidemob c_sec_head rtab" colspan="6">Regular Season</th>
+<th class="more hidedesk c_sec_head rtab" >More -></th>
+<th class="hidemob c_sec_head rtab" colspan="5">Playoffs</th></tr>
+<tr class="c_sort_head">
+<th class="l">Season</th>
+<th class="l">Team</th>
+<th class="l">Lge</th>
+<th>GP</th>
+<th class="hidemob">G</th>
+<th class="hidemob">A</th>
+<th class="hidemob">Pts</th>
+<th class="hidemob">PIM</th>
+<th class="hidemob">+/-</th>
+<th class="hidemob">GP</th>
+<th class="hidemob">G</th>
+<th class="hidemob">A</th>
+<th class="hidemob">Pts</th>
+<th class="hidden"></th>
+<th class="hidemob">PIM</th></tr>
+</thead>
+<tbody>
+<tr class="CANJRA-1"><td class="pds l">2017-18</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0052242018.html">Cobourg Cougars</a></td>
+<td class="pdl l">OJHL</td>
+<td class="pdgp">53</td>
+<td class="hidemob">7</td>
+<td class="hidemob">9</td>
+<td class="hidemob">16</td>
+<td class="hidemob">18</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob">10</td>
+<td class="hidemob">1</td>
+<td class="hidemob">7</td>
+<td class="hidemob">8</td>
+<td class="hidemob">18</td>
+<td class="hidden"></td>
+</tr>
+<tr class="CANJRA-1"><td class="pds l">2018-19</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0052182019.html">Wellington Dukes</a></td>
+<td class="pdl l">OJHL</td>
+<td class="pdgp">40</td>
+<td class="hidemob">9</td>
+<td class="hidemob">6</td>
+<td class="hidemob">15</td>
+<td class="hidemob">30</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidden"></td>
+</tr>
+<tr class="CANJRA-1"><td class="pds l">2018-19</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0063592019.html">Kemptville 73s</a></td>
+<td class="pdl l">CCHL</td>
+<td class="pdgp">21</td>
+<td class="hidemob">10</td>
+<td class="hidemob">11</td>
+<td class="hidemob">21</td>
+<td class="hidemob">4</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidden"></td>
+</tr>
+<tr class="CANJRA-1"><td class="pds l">2019-20</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0063592020.html">Kemptville 73s</a></td>
+<td class="pdl l">CCHL</td>
+<td class="pdgp">61</td>
+<td class="hidemob">27</td>
+<td class="hidemob">32</td>
+<td class="hidemob">59</td>
+<td class="hidemob">28</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidden"></td>
+</tr>
+<tr class="COLLEG-1"><td class="pds l">2020-21</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0088842021.html">Long Island University</a></td>
+<td class="pdl l">NCAA</td>
+<td class="pdgp">8</td>
+<td class="hidemob">0</td>
+<td class="hidemob">1</td>
+<td class="hidemob">1</td>
+<td class="hidemob">2</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidden"></td>
+</tr>
+<tr class="COLLEG-1"><td class="pds l">2021-22</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0048962022.html">Carleton University</a></td>
+<td class="pdl l">OUA</td>
+<td class="pdgp">8</td>
+<td class="hidemob">1</td>
+<td class="hidemob">3</td>
+<td class="hidemob">4</td>
+<td class="hidemob">0</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidden"></td>
+</tr>
+<tr class="COLLEG-1"><td class="pds l">2022-23</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0048962023.html">Carleton University</a></td>
+<td class="pdl l">OUA</td>
+<td class="pdgp">26</td>
+<td class="hidemob">4</td>
+<td class="hidemob">3</td>
+<td class="hidemob">7</td>
+<td class="hidemob">14</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidden"></td>
+</tr>
+<tr class="COLLEG-1"><td class="pds l">2023-24</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0048962024.html">Carleton University</a></td>
+<td class="pdl l">OUA</td>
+<td class="pdgp">10</td>
+<td class="hidemob">1</td>
+<td class="hidemob">1</td>
+<td class="hidemob">2</td>
+<td class="hidemob">2</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidden"></td>
+</tr>
+<tr class="COLLEG-1"><td class="pds l">2024-25</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0048962025.html">Carleton University</a></td>
+<td class="pdl l">OUA</td>
+<td class="pdgp">28</td>
+<td class="hidemob">6</td>
+<td class="hidemob">9</td>
+<td class="hidemob">15</td>
+<td class="hidemob">10</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidden"></td>
+</tr>
+</tbody>
+<tfoot>
+</tfoot>
+</table>
+<p class="desktop"> </p><div class="full_botlb2">
+<div id="player_bottom_leaderboard_2"></div>
+
+</div>
+<div class="full_botlb3">
+</div>
+</div>
+
+<div style="margin-top: -17px; border-top: none; border-top-left-radius: 0px; border-top-right-radius: 0px;" id="credit" class="tablebg desktop st">
+</div>
+</div>
+<div class="sponsor" id="d300_160_300">
+<div id='player_right_rectangle_x'></div>
+
+</div>
+<div id="related" class="tablebg">
+<h3 style="margin-top:0px; margin-bottom:0px; color:#900">Related Information</h3>
+<h4 style="margin-top:20px; margin-bottom:5px; border: solid black; border-width: 1px 0px; padding:5px 0px; color:#900">League Information</h4>
+<div style="margin-bottom:10px">Madoka Suzuki played in four leagues over the course of his career. Learn more about them from these League History pages.</div><div class="ti" ><a href="/ihdb/stats/leagues/175.html">Ontario Junior Hockey League</a></div>
+<div class="ti" ><a href="/ihdb/stats/leagues/54.html">Central Canada Hockey League</a></div>
+<div class="ti" ><a href="/ihdb/stats/leagues/140.html">National Collegiate Athletic Association</a></div>
+<div class="ti" ><a href="/ihdb/stats/leagues/301.html">U Sports - Ontario University Athletic Association</a></div>
+<h4 style="margin-top:20px; margin-bottom:5px; border: solid black; border-width: 1px 0px; padding:5px 0px; color:#900">Team Information</h4>
+<div style="margin-bottom:10px">If you would like to know more about any of the five teams that Madoka Suzuki played for during his career, visit these Team History pages.</div><div class="ti"><a href="/stte/cobourg-cougars-5287.html">Cobourg Cougars</a></div>
+<div class="ti"><a href="/stte/wellington-dukes-8913.html">Wellington Dukes</a></div>
+<div class="ti"><a href="/stte/kemptville-73s-10613.html">Kemptville 73s</a></div>
+<div class="ti"><a href="/stte/long-island-university-12796.html">Long Island University</a></div>
+<div class="ti"><a href="/stte/carleton-university-5152.html">Carleton University</a></div>
+</div>
+
+
+
+  <div id="footer_bar">
+     <div id="footer_cell">
+        <a href="/" class="revlink">Home</a> | <a href="/advertise.html" class="revlink">Advertise</a> | <a href="/feedback.html" class="revlink">Feedback</a> | <a href="/copyright.html" class="revlink">Usage</a> | <a href="/privacy.html" class="revlink">Privacy</a> | <a href="/faq.html" class="revlink">FAQ</a> | <a href="/links.html" class="revlink">Links</a> | <a href="/credits.html" class="revlink">Credits</a> | <a href="/help.html" class="revlink">Help!</a>
+     </div>
+     <div id="bottom_cell">
+        <div style="float:left"><a href="/"><img src="/images/logo_small.gif" alt="hockeyDB.com" width="115" height="38" style="border:0;" /></a> &nbsp; &nbsp; Copyright 1998-2026 hockeyDB.com. All rights reserved.</div>
+     </div>
+  </div>
+
+
+
+
+
+<noscript>
+<a href="https://www.quantcast.com/p-bf8ND2mCqtl_o" target="_blank"><img src="https://pixel.quantserve.com/pixel/p-bf8ND2mCqtl_o.gif" style="display: none; border:0;" height="1" width="1" alt="Quantcast"/></a>
+</noscript>
+
+
+
+
+</body>
+</html>
+
+```
+The JSON schema is as follows:```json
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "season": {
+        "type": "string"
+      },
+      "team": {
+        "type": "string"
+      },
+      "gp": {
+        "type": "integer"
+      },
+      "g": {
+        "type": "integer"
+      },
+      "a": {
+        "type": "integer"
+      },
+      "pts": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "season",
+      "team",
+      "gp",
+      "g",
+      "a",
+      "pts"
+    ]
+  }
+}
+```

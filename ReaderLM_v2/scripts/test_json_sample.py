@@ -78,32 +78,41 @@ def run_stamp() -> str:
     return now.strftime("%Y-%m-%d_%H%M%S") + f"-{now.microsecond // 1000:03d}"
 
 
-def run_folder_name(stamp: str, sample_stem: str, args: argparse.Namespace, model: str | None = None) -> str:
+def run_folder_name(
+    stamp: str,
+    sample_stem: str,
+    *,
+    model: str | None = None,
+    clean: bool = True,
+    as_is: bool = False,
+    news_instruction: bool = False,
+    dry_run: bool = False,
+) -> str:
     """Timestamp first so folders sort in run order, then what the run was."""
     parts = [stamp, "json", path_token(sample_stem)]
     if model:
         parts.append(path_token(model))
-    if args.as_is:
+    if as_is:
         parts.append("as-is")
-    elif args.clean:
+    elif clean:
         parts.append("cleaned")
     else:
         parts.append("raw-html")
-    if args.news_instruction:
+    if news_instruction:
         parts.append("news-instruction")
-    if args.dry_run:
+    if dry_run:
         parts.append("dry-run")
     return "_".join(parts)
 
 
-def create_run_dir(sample_path: Path, args: argparse.Namespace) -> tuple[Path, str]:
+def create_run_dir(sample_stem: str, **flags) -> tuple[Path, str]:
     stamp = run_stamp()
     root = readerlm.OUTPUT_DIR
     root.mkdir(parents=True, exist_ok=True)
-    folder = root / run_folder_name(stamp, sample_path.stem, args)
+    folder = root / run_folder_name(stamp, sample_stem, **flags)
     extra = 2
     while folder.exists():
-        folder = root / f"{run_folder_name(stamp, sample_path.stem, args)}_{extra}"
+        folder = root / f"{run_folder_name(stamp, sample_stem, **flags)}_{extra}"
         extra += 1
     folder.mkdir()
     return folder, stamp
@@ -119,12 +128,135 @@ def artifact_paths(folder: Path, stamp: str, sample_stem: str) -> tuple[Path, Pa
     )
 
 
-def adopt_model(folder: Path, stamp: str, sample_path: Path, args: argparse.Namespace, model: str) -> Path:
-    renamed = folder.parent / run_folder_name(stamp, sample_path.stem, args, model=model)
+def adopt_model(folder: Path, stamp: str, sample_stem: str, model: str, **flags) -> Path:
+    renamed = folder.parent / run_folder_name(stamp, sample_stem, model=model, **flags)
     if renamed == folder or renamed.exists():
         return folder
     folder.rename(renamed)
     return renamed
+
+
+def execute_json_run(
+    message: str,
+    sample_stem: str,
+    *,
+    base_url: str,
+    api_key: str,
+    model: str | None,
+    temperature: float,
+    repeat_penalty: float,
+    max_tokens: int,
+    timeout: float,
+    clean: bool = True,
+    as_is: bool = False,
+    news_instruction: bool = False,
+    dry_run: bool = False,
+) -> dict:
+    """Write a run folder, call LM Studio, and return the parsed seasons array.
+
+    ``rows`` is the parsed array only when it matches the seasons schema.
+    ``LMStudioError`` is left to the caller.
+    """
+    flags = {
+        "clean": clean,
+        "as_is": as_is,
+        "news_instruction": news_instruction,
+        "dry_run": dry_run,
+    }
+    run_dir, stamp = create_run_dir(sample_stem, **flags)
+    prompt_path, response_path, parsed_path, performance_path = artifact_paths(run_dir, stamp, sample_stem)
+    prompt_path.write_text(message, encoding="utf-8")
+
+    estimate = readerlm.rough_token_estimate(message)
+    print(f"User message: {len(message)} characters, roughly {estimate} tokens.")
+    print(f"Set LM Studio context above {estimate + max_tokens} tokens (estimate plus max_tokens).")
+    print(f"Run folder: {run_dir}")
+    print(f"Wrote {prompt_path}")
+
+    if dry_run:
+        print("Dry run. LM Studio was not called.")
+        return {
+            "exit_code": 0,
+            "folder_name": run_dir.name,
+            "rows": None,
+            "detail": "Dry run. LM Studio was not called.",
+            "finish_reason": None,
+            "error": None,
+            "warning": None,
+        }
+
+    resolved = lmstudio_client.resolve_model(base_url, api_key, model, timeout=min(timeout, 30))
+    run_dir = adopt_model(run_dir, stamp, sample_stem, resolved, **flags)
+    prompt_path, response_path, parsed_path, performance_path = artifact_paths(run_dir, stamp, sample_stem)
+    print(f"Run folder: {run_dir}")
+    print(f"Requesting JSON from {base_url} model={resolved} max_tokens={max_tokens} temperature={temperature}")
+    text, report = perf_stats.measure_chat(
+        base_url=base_url,
+        api_key=api_key,
+        model=resolved,
+        user_content=message,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        timeout=timeout,
+        repeat_penalty=repeat_penalty,
+        prompt_characters=len(message),
+    )
+    response_path.write_text(text, encoding="utf-8")
+    finish = report["result"].get("finish_reason")
+    speed = report["speed"]
+    print(
+        f"finish_reason={finish} "
+        f"tokens/s={speed.get('tokens_per_second')} "
+        f"ttft_s={speed.get('time_to_first_token_seconds')} "
+        f"wall_s={speed.get('wall_clock_seconds')}"
+    )
+    print(f"Wrote {response_path}")
+
+    warning = None
+    if finish == "length":
+        warning = "The server stopped because max_tokens was reached. The array may be cut off."
+        print("The server stopped because max_tokens was reached. Raise --max-tokens if the array is cut off.")
+
+    try:
+        value = readerlm.extract_json_value(text)
+    except (ValueError, json.JSONDecodeError) as exc:
+        report["result"]["json_parsed"] = False
+        report["result"]["schema_ok"] = False
+        report["result"]["schema_detail"] = str(exc)
+        text_path = perf_stats.write_performance(performance_path, report)
+        print(f"Could not parse JSON from the assistant text: {exc}")
+        print(f"Wrote {performance_path}")
+        print(f"Wrote {text_path}")
+        return {
+            "exit_code": 2,
+            "folder_name": run_dir.name,
+            "rows": None,
+            "detail": str(exc),
+            "finish_reason": finish,
+            "error": f"Could not parse JSON from the assistant text: {exc}",
+            "warning": warning,
+        }
+
+    parsed_path.write_text(json.dumps(value, indent=2), encoding="utf-8")
+    print(f"Wrote {parsed_path}")
+    ok, detail = readerlm.json_rows_match_schema(value)
+    report["result"]["json_parsed"] = True
+    report["result"]["json_object_count"] = len(value) if isinstance(value, list) else None
+    report["result"]["schema_ok"] = ok
+    report["result"]["schema_detail"] = detail
+    text_path = perf_stats.write_performance(performance_path, report)
+    print(detail)
+    print(f"Wrote {performance_path}")
+    print(f"Wrote {text_path}")
+    return {
+        "exit_code": 0 if ok else 2,
+        "folder_name": run_dir.name,
+        "rows": value if ok else None,
+        "detail": detail,
+        "finish_reason": finish,
+        "error": None if ok else detail,
+        "warning": warning,
+    }
 
 
 def main() -> int:
@@ -150,75 +282,23 @@ def main() -> int:
     sample_path = args.sample.resolve()
     sample_text = sample_path.read_text(encoding="utf-8")
     message, notes = build_message(args, sample_text)
-
-    run_dir, stamp = create_run_dir(sample_path, args)
-    prompt_path, response_path, parsed_path, performance_path = artifact_paths(run_dir, stamp, sample_path.stem)
-    prompt_path.write_text(message, encoding="utf-8")
-
-    estimate = readerlm.rough_token_estimate(message)
     print(notes)
-    print(f"User message: {len(message)} characters, roughly {estimate} tokens.")
-    print(f"Set LM Studio context above {estimate + args.max_tokens} tokens (estimate plus max_tokens).")
-    print(f"Run folder: {run_dir}")
-    print(f"Wrote {prompt_path}")
-
-    if args.dry_run:
-        print("Dry run. LM Studio was not called.")
-        return 0
-
-    model = lmstudio_client.resolve_model(args.base_url, args.api_key, args.model, timeout=min(args.timeout, 30))
-    run_dir = adopt_model(run_dir, stamp, sample_path, args, model)
-    prompt_path, response_path, parsed_path, performance_path = artifact_paths(run_dir, stamp, sample_path.stem)
-    print(f"Run folder: {run_dir}")
-    print(f"Requesting JSON from {args.base_url} model={model} max_tokens={args.max_tokens} temperature={args.temperature}")
-    text, report = perf_stats.measure_chat(
+    result = execute_json_run(
+        message,
+        sample_path.stem,
         base_url=args.base_url,
         api_key=args.api_key,
-        model=model,
-        user_content=message,
+        model=args.model,
         temperature=args.temperature,
+        repeat_penalty=args.repeat_penalty,
         max_tokens=args.max_tokens,
         timeout=args.timeout,
-        repeat_penalty=args.repeat_penalty,
-        prompt_characters=len(message),
+        clean=args.clean,
+        as_is=args.as_is,
+        news_instruction=args.news_instruction,
+        dry_run=args.dry_run,
     )
-    response_path.write_text(text, encoding="utf-8")
-    finish = report["result"].get("finish_reason")
-    speed = report["speed"]
-    print(
-        f"finish_reason={finish} "
-        f"tokens/s={speed.get('tokens_per_second')} "
-        f"ttft_s={speed.get('time_to_first_token_seconds')} "
-        f"wall_s={speed.get('wall_clock_seconds')}"
-    )
-    print(f"Wrote {response_path}")
-
-    try:
-        value = readerlm.extract_json_value(text)
-    except (ValueError, json.JSONDecodeError) as exc:
-        report["result"]["json_parsed"] = False
-        report["result"]["schema_ok"] = False
-        report["result"]["schema_detail"] = str(exc)
-        text_path = perf_stats.write_performance(performance_path, report)
-        print(f"Could not parse JSON from the assistant text: {exc}")
-        print(f"Wrote {performance_path}")
-        print(f"Wrote {text_path}")
-        return 2
-
-    parsed_path.write_text(json.dumps(value, indent=2), encoding="utf-8")
-    print(f"Wrote {parsed_path}")
-    ok, detail = readerlm.json_rows_match_schema(value)
-    report["result"]["json_parsed"] = True
-    report["result"]["json_object_count"] = len(value) if isinstance(value, list) else None
-    report["result"]["schema_ok"] = ok
-    report["result"]["schema_detail"] = detail
-    text_path = perf_stats.write_performance(performance_path, report)
-    print(detail)
-    print(f"Wrote {performance_path}")
-    print(f"Wrote {text_path}")
-    if finish == "length":
-        print("The server stopped because max_tokens was reached. Raise --max-tokens if the array is cut off.")
-    return 0 if ok else 2
+    return result["exit_code"]
 
 
 if __name__ == "__main__":

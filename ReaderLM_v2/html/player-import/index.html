@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Import player stats</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect fill='%230a0c0f' width='16' height='16'/%3E%3Crect fill='%23c6f135' x='3' y='3' width='10' height='10' rx='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/player-import/import.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <div class="brand-name">ReaderLM</div>
+          <div class="brand-sub">Player import</div>
+        </div>
+      </div>
+      <a class="nav" href="/index.html">Performance</a>
+    </header>
+    <main>
+      <h1>Import player stats</h1>
+      <p class="lead">Search hockeydb, choose a player, and import the regular-season table. Import runs ReaderLM on this machine, so LM Studio needs to be serving that model.</p>
+      <form id="search-form" class="search">
+        <label for="q">Player name</label>
+        <div class="search-row">
+          <input id="q" name="q" type="search" autocomplete="off" placeholder="Suzuki" required>
+          <button id="search" type="submit">Search</button>
+        </div>
+      </form>
+      <p id="status" class="status" role="status"></p>
+      <p id="error" class="error" role="alert" hidden></p>
+      <section id="results" hidden>
+        <div class="results-head">
+          <h2 id="count"></h2>
+          <div class="pager">
+            <button id="prev" type="button" hidden>Previous</button>
+            <button id="next" type="button" hidden>Next</button>
+          </div>
+        </div>
+        <p id="shown" class="shown" hidden></p>
+        <div id="result-list" class="result-list" role="listbox" aria-label="Search results"></div>
+      </section>
+      <section id="pick" class="pick" hidden>
+        <p id="pick-name"></p>
+        <button id="import" type="button" class="primary" disabled>Import stats</button>
+      </section>
+      <section id="stats" hidden>
+        <h2 id="stats-title"></h2>
+        <p id="folder" class="folder"></p>
+        <p id="warning" class="warning" hidden></p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Season</th>
+                <th>Team</th>
+                <th>GP</th>
+                <th>G</th>
+                <th>A</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody id="stats-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/player-import/import.js"></script>
+</body>
+</html>

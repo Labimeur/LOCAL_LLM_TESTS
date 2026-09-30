@@ -81,6 +81,18 @@ python scripts\test_markdown.py --file samples\gistfile1.txt
 
 That command takes the HTML out of the sample, cleans it, and uses the Markdown instruction from the model card. The seasons instruction and the schema are not sent. Max tokens defaults to 4096 for `--file`.
 
+## 4. Search a player and import stats
+
+Start the local page server. LM Studio must already be serving ReaderLM-v2, the same way it does for a JSON test.
+
+```text
+python html\performance-dashboard\serve.py
+```
+
+Open `http://127.0.0.1:8765/players.html`, or use Import player on the performance page. Search a name such as `Suzuki`, select Nick Suzuki, and choose Import stats. The page asks hockeydb for that player's profile, then runs the same seasons extraction as `test_json_sample.py`. When it finishes, the season table is on the page and a new folder is under `output/`. Reload the performance dashboard to see that run.
+
+If the name matches nobody, the page says so and does not show a table. If LM Studio is not running, Import stats shows that error and does not show a table.
+
 ## When a run fails
 
 The server is not running. Start it from LM Studio's Developer tab, or run `lms server start`.

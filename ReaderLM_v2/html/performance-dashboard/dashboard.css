@@ -81,6 +81,16 @@ button, input { font: inherit; color: inherit; }
   text-transform: uppercase;
 }
 
+.rail-jump {
+  display: inline-block;
+  margin: 10px 8px 0;
+  color: var(--phosphor);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.rail-jump:hover { text-decoration: underline; }
+
 .rail-label {
   margin: 16px 8px 8px;
   color: var(--dim);
