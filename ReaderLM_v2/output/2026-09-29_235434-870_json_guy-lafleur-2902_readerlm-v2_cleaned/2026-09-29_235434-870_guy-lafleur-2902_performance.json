@@ -1,0 +1,194 @@
+{
+  "timing": {
+    "started_at": "2026-09-29T23:54:35.162-04:00",
+    "finished_at": "2026-09-29T23:54:43.558-04:00"
+  },
+  "model": {
+    "id": "readerlm-v2",
+    "publisher": "mradermacher",
+    "architecture": "qwen2",
+    "quantization": "Q6_K",
+    "state": "loaded",
+    "loaded_context_length": 262144,
+    "max_context_length": 512768
+  },
+  "request": {
+    "endpoint": "/api/v1/chat",
+    "temperature": 0.0,
+    "repeat_penalty": 1.08,
+    "max_tokens": 2048,
+    "prompt_characters": 23104
+  },
+  "tokens": {
+    "input_tokens": 8862,
+    "output_tokens": 1473,
+    "reasoning_output_tokens": 0,
+    "total_tokens": 10335
+  },
+  "speed": {
+    "tokens_per_second": 193.24,
+    "time_to_first_token_seconds": 1.005,
+    "model_load_time_seconds": null,
+    "wall_clock_seconds": 8.396,
+    "output_tokens_per_wall_second": 175.44
+  },
+  "memory": {
+    "before": {
+      "captured_at": "2026-09-29T23:54:34.913-04:00",
+      "gpu": {
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 5090 Laptop GPU",
+            "memory_used_mib": 12058.0,
+            "memory_total_mib": 24463.0,
+            "utilization_percent": 0.0
+          }
+        ]
+      },
+      "system_ram": {
+        "total_mib": 64957.4,
+        "available_mib": 48283.7,
+        "used_mib": 16673.7,
+        "used_percent": 25
+      },
+      "lm_studio_processes": {
+        "process_count": 10,
+        "working_set_sum_mib": 2816.4,
+        "largest_working_set_mib": 2391.3,
+        "processes": [
+          {
+            "pid": 2976,
+            "working_set_mib": 77.3
+          },
+          {
+            "pid": 24004,
+            "working_set_mib": 6.4
+          },
+          {
+            "pid": 24532,
+            "working_set_mib": 7.4
+          },
+          {
+            "pid": 25080,
+            "working_set_mib": 65.3
+          },
+          {
+            "pid": 25588,
+            "working_set_mib": 2.8
+          },
+          {
+            "pid": 26380,
+            "working_set_mib": 250.6
+          },
+          {
+            "pid": 28196,
+            "working_set_mib": 10.4
+          },
+          {
+            "pid": 29432,
+            "working_set_mib": 1.9
+          },
+          {
+            "pid": 33240,
+            "working_set_mib": 3.0
+          },
+          {
+            "pid": 34276,
+            "working_set_mib": 2391.3
+          }
+        ]
+      }
+    },
+    "after": {
+      "captured_at": "2026-09-29T23:54:43.604-04:00",
+      "gpu": {
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 5090 Laptop GPU",
+            "memory_used_mib": 12148.0,
+            "memory_total_mib": 24463.0,
+            "utilization_percent": 84.0
+          }
+        ]
+      },
+      "system_ram": {
+        "total_mib": 64957.4,
+        "available_mib": 48058.2,
+        "used_mib": 16899.2,
+        "used_percent": 26
+      },
+      "lm_studio_processes": {
+        "process_count": 10,
+        "working_set_sum_mib": 2844.2,
+        "largest_working_set_mib": 2405.4,
+        "processes": [
+          {
+            "pid": 2976,
+            "working_set_mib": 78.7
+          },
+          {
+            "pid": 24004,
+            "working_set_mib": 6.4
+          },
+          {
+            "pid": 24532,
+            "working_set_mib": 7.4
+          },
+          {
+            "pid": 25080,
+            "working_set_mib": 70.1
+          },
+          {
+            "pid": 25588,
+            "working_set_mib": 2.8
+          },
+          {
+            "pid": 26380,
+            "working_set_mib": 258.1
+          },
+          {
+            "pid": 28196,
+            "working_set_mib": 10.4
+          },
+          {
+            "pid": 29432,
+            "working_set_mib": 1.9
+          },
+          {
+            "pid": 33240,
+            "working_set_mib": 3.0
+          },
+          {
+            "pid": 34276,
+            "working_set_mib": 2405.4
+          }
+        ]
+      }
+    },
+    "gpu_samples": 16,
+    "gpu_peak_used_mib": 12148.0
+  },
+  "result": {
+    "finish_reason": "stop",
+    "json_parsed": true,
+    "json_object_count": null,
+    "schema_ok": false,
+    "schema_detail": "expected a JSON array, got dict"
+  },
+  "lmstudio_stats": {
+    "input_tokens": 8862,
+    "total_output_tokens": 1473,
+    "reasoning_output_tokens": 0,
+    "tokens_per_second": 193.23978236451504,
+    "time_to_first_token_seconds": 1.005
+  },
+  "insights": [
+    "The prompt used 8862 of 262144 loaded context tokens (3%).",
+    "Time to first token was 1.005s, about 8818 input tokens/second of prompt processing.",
+    "Generation speed was 193.2 tokens/second across 1473 output tokens.",
+    "Wall clock for the whole request was 8.396s (175.4 output tokens per wall-clock second, including prompt processing).",
+    "GPU memory after the run was 12148 of 24463 MiB on NVIDIA GeForce RTX 5090 Laptop GPU.",
+    "Peak GPU memory sampled during the request was 12148 MiB.",
+    "The model was already loaded, so this run has no model-load time."
+  ]
+}

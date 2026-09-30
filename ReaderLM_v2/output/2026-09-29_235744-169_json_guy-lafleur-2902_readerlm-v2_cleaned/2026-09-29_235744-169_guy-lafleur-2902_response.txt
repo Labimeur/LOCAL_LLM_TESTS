@@ -1,0 +1,204 @@
+```json
+[
+  {
+    "season": "1966-67",
+    "team": "Quebec Jr. Aces",
+    "gp": 8,
+    "g": 1,
+    "a": 1,
+    "pts": 2
+  },
+  {
+    "season": "1967-68",
+    "team": "Quebec Jr. Aces",
+    "gp": 43,
+    "g": 30,
+    "a": 19,
+    "pts": 49
+  },
+  {
+    "season": "1968-69",
+    "team": "Quebec Jr. Aces",
+    "gp": 49,
+    "g": 50,
+    "a": 60,
+    "pts": 110
+  },
+  {
+    "season": "1969-70",
+    "team": "Quebec Remparts",
+    "gp": 56,
+    "g": 103,
+    "a": 67,
+    "pts": 170
+  },
+  {
+    "season": "1970-71",
+    "team": "Quebec Remparts",
+    "gp": 62,
+    "g": 130,
+    "a": 79,
+    "pts": 209
+  },
+  {
+    "season": "1971-72",
+    "team": "Montreal Canadiens",
+    "gp": 73,
+    "g": 29,
+    "a": 35,
+    "pts": 64
+  },
+  {
+    "season": "1972-73",
+    "team": "Montreal Canadiens",
+    "gp": 69,
+    "g": 28,
+    "a": 27,
+    "pts": 55
+  },
+  {
+    "season": "1973-74",
+    "team": "Montreal Canadiens",
+    "gp": 73,
+    "g": 21,
+    "a": 35,
+    "pts": 56
+  },
+  {
+    "season": "1974-75",
+    "team": "Montreal Canadiens",
+    "gp": 70,
+    "g": 53,
+    "a": 66,
+    "pts": 125
+  },
+  {
+    "season": "1975-76",
+    "team": "Montreal Canadiens",
+    "gp": 80,
+    "g": 56,
+    "a": 69,
+    "pts": 125
+  },
+  {
+    "season": "1976-77",
+    "team": "Montreal Canadiens",
+    "gp": 80,
+    "g": 56,
+    "a": 80,
+    "pts": 136
+  },
+  {
+    "season": "1977-78",
+    "team": "Montreal Canadiens",
+    "gp": 78,
+    "g": 60,
+    "a": 72,
+    "pts": 132
+  },
+  {
+    "season": "1978-79",
+    "team": "Montreal Canadiens",
+    "gp": 80,
+    "g": 52,
+    "a": 77,
+    "pts": 129
+  },
+  {
+    "season": "1979-80",
+    "team": "Montreal Canadiens",
+    "gp": 74,
+    "g": 50,
+    "a": 75,
+    "pts": 125
+  },
+  {
+    "season": "1980-81",
+    "team": "Montreal Canadiens",
+    "gp": 51,
+    "g": 27,
+    "a": 43,
+    "pts": 70
+  },
+  {
+    "season": "1981-82",
+    "team": "Montreal Canadiens",
+    "gp": 66,
+    "g": 27,
+    "a": 57,
+    "pts": 84
+  },
+  {
+    "season": "1982-83",
+    "team": "Montreal Canadiens",
+    "gp": 68,
+    "g": 27,
+    "a": 49,
+    "pts": 76
+  },
+  {
+    "season": "1983-84",
+    "team": "Montreal Canadiens",
+    "gp": 80,
+    "g": 30,
+    "a": 40,
+    "pts": 70
+  },
+  {
+    "season": "1984-85",
+    "team": "Montreal Canadiens",
+    "gp": 19,
+    "g": 2,
+    "a": 3,
+    "pts": 5
+  },
+  {
+    "season": "1985-86",
+    "team": "Did Not Play",
+    "gp": 0,
+    "g": 0,
+    "a": 0,
+    "pts": 0
+  },
+  {
+    "season": "1986-87",
+    "team": "Did Not Play",
+    "gp": 0,
+    "g": 0,
+    "a": 0,
+    "pts": 0
+  },
+  {
+    "season": "1987-88",
+    "team": "Did Not Play",
+    "gp": 0,
+    "g": 0,
+    "a": 0,
+    "pts": 0
+  },
+  {
+    "season": "1988-89",
+    "team": "New York Rangers",
+    "gp": 67,
+    "g": 18,
+    "a": 27,
+    "pts": 45
+  },
+  {
+    "season": "1989-90",
+    "team": "Quebec Nordiques",
+    "gp": 39,
+    "g": 12,
+    "a": 22,
+    "pts": 34
+  },
+  {
+    "season": "1990-91",
+    "team": "Quebec Nordiques",
+    "gp": 59,
+    "g": 12,
+    "a": 16,
+    "pts": 28
+  }
+]
+```

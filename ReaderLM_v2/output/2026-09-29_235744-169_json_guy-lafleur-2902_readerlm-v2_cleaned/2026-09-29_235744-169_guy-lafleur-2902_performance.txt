@@ -1,0 +1,58 @@
+ReaderLM-v2 run performance
+
+Started:  2026-09-29T23:57:44.435-04:00
+Finished: 2026-09-29T23:57:51.467-04:00
+Wall clock: 7.032 s
+
+Model
+  id: readerlm-v2
+  publisher: mradermacher
+  architecture: qwen2
+  quantization: Q6_K
+  state: loaded
+  loaded context: 512768
+  max context: 512768
+
+Request
+  temperature: 0.0
+  repeat_penalty: 1.08
+  max_tokens: 2048
+  prompt characters: 23104
+
+Tokens
+  input: 8862
+  output: 1465
+  reasoning output: 0
+  total: 10327
+  finish: stop
+  json parsed: True
+  schema ok: True
+  schema detail: 25 objects with the required fields
+
+Speed
+  tokens per second: 209.36
+  time to first token (s): 0.032
+  model load time (s): not reported (model already loaded)
+  output tokens per wall-clock second: 208.33
+
+Memory
+  before at 2026-09-29T23:57:44.189-04:00
+    system RAM used: 17421.1 / 64957.4 MiB (26%)
+    LM Studio working set: 3338.1 MiB across 10 processes
+    largest LM Studio process: 2889.6 MiB
+    GPU NVIDIA GeForce RTX 5090 Laptop GPU: 19370.0 / 24463.0 MiB, utilization 1.0%
+  after at 2026-09-29T23:57:51.468-04:00
+    system RAM used: 17445.6 / 64957.4 MiB (26%)
+    LM Studio working set: 3401.3 MiB across 10 processes
+    largest LM Studio process: 2891.5 MiB
+    GPU NVIDIA GeForce RTX 5090 Laptop GPU: 19332.0 / 24463.0 MiB, utilization 88.0%
+  peak GPU memory sampled during the request: 19383.0 MiB
+
+Notes
+  The prompt used 8862 of 512768 loaded context tokens (2%).
+  Time to first token was 0.032s. For 8862 input tokens that is about 276938 tokens/second, which is only plausible if LM Studio reused a cached prompt. Treat it as a cache hit, not a cold prompt-processing rate.
+  Generation speed was 209.4 tokens/second across 1465 output tokens.
+  Wall clock for the whole request was 7.032s (208.3 output tokens per wall-clock second, including prompt processing).
+  GPU memory after the run was 19332 of 24463 MiB on NVIDIA GeForce RTX 5090 Laptop GPU.
+  Peak GPU memory sampled during the request was 19383 MiB.
+  The model was already loaded, so this run has no model-load time.

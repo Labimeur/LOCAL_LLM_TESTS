@@ -1,0 +1,58 @@
+ReaderLM-v2 run performance
+
+Started:  2026-09-29T23:54:35.162-04:00
+Finished: 2026-09-29T23:54:43.558-04:00
+Wall clock: 8.396 s
+
+Model
+  id: readerlm-v2
+  publisher: mradermacher
+  architecture: qwen2
+  quantization: Q6_K
+  state: loaded
+  loaded context: 262144
+  max context: 512768
+
+Request
+  temperature: 0.0
+  repeat_penalty: 1.08
+  max_tokens: 2048
+  prompt characters: 23104
+
+Tokens
+  input: 8862
+  output: 1473
+  reasoning output: 0
+  total: 10335
+  finish: stop
+  json parsed: True
+  schema ok: False
+  schema detail: expected a JSON array, got dict
+
+Speed
+  tokens per second: 193.24
+  time to first token (s): 1.005
+  model load time (s): not reported (model already loaded)
+  output tokens per wall-clock second: 175.44
+
+Memory
+  before at 2026-09-29T23:54:34.913-04:00
+    system RAM used: 16673.7 / 64957.4 MiB (25%)
+    LM Studio working set: 2816.4 MiB across 10 processes
+    largest LM Studio process: 2391.3 MiB
+    GPU NVIDIA GeForce RTX 5090 Laptop GPU: 12058.0 / 24463.0 MiB, utilization 0.0%
+  after at 2026-09-29T23:54:43.604-04:00
+    system RAM used: 16899.2 / 64957.4 MiB (26%)
+    LM Studio working set: 2844.2 MiB across 10 processes
+    largest LM Studio process: 2405.4 MiB
+    GPU NVIDIA GeForce RTX 5090 Laptop GPU: 12148.0 / 24463.0 MiB, utilization 84.0%
+  peak GPU memory sampled during the request: 12148.0 MiB
+
+Notes
+  The prompt used 8862 of 262144 loaded context tokens (3%).
+  Time to first token was 1.005s, about 8818 input tokens/second of prompt processing.
+  Generation speed was 193.2 tokens/second across 1473 output tokens.
+  Wall clock for the whole request was 8.396s (175.4 output tokens per wall-clock second, including prompt processing).
+  GPU memory after the run was 12148 of 24463 MiB on NVIDIA GeForce RTX 5090 Laptop GPU.
+  Peak GPU memory sampled during the request was 12148 MiB.
+  The model was already loaded, so this run has no model-load time.

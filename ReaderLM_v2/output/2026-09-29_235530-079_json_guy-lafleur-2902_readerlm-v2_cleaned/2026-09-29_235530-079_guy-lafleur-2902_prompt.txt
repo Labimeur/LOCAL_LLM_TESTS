@@ -1,0 +1,705 @@
+Extract the specified information from a list of seasons and present it in a structured JSON format.
+
+Only extract these fields:
+- season
+- team
+- gp
+- g
+- a
+- pts
+```html
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Guy Lafleur Hockey Stats and Profile at hockeydb.com</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<div id="hdb_logo_div" style="float:left">
+   <a href="/">          
+   <img id="hdb_logo" src="/images/logo.gif" alt="hockey DB" width="166" height="75" style="border:0; height: 75px; width: 166px;" /></a>
+</div>
+
+<div id="hdb_logo_divv" style="float:left">
+   <a href="/">          
+   <img id="hdb_logov" src="/images/hdb-vert-2.gif" alt="hockey DB" width="40" style="border:0;" /></a>
+</div>
+
+  <div id="headerbar">
+     <div id="hb_league">
+        <a href="/ihdb/stats/leagues.html">
+          <img src="/images/menu_league.gif" alt="search by league" width="126" height="48" style="border:0;" id="menu_league" /></a>
+     </div>
+     <div id="hb_team">
+        <a href="/ihdb/stats/teams.html">
+          <img src="/images/menu_team.gif" alt="team" width="116" height="48" style="border:0;" id="menu_team" /></a>
+     </div>
+     <div id="hb_scoreboard">
+        <a href="/scoreboard">
+          <img src="/images/menu_mr.gif" alt="morning report" width="112" height="48" style="border:0;" id="menu_mr" /></a>
+     </div>
+     <div id="hb_contact">
+        <a href="/feedback.html" >
+          <img src="/images/menu_contact.gif" alt="contact us" width="93" height="48" style="border:0;" id="menu_contact" /></a>
+     </div>
+   </div>
+
+<div id="hb_black">
+   <div id="hb_image">
+     <img src="/images/hdr_hockeyDB.gif" alt="home" />
+   </div>
+
+   <div id="hb_red">
+       <form name="player" method="get" action="/ihdb/stats/find_player.php">
+         <div id="hb_form1"><input autocorrect="off" type="text" name="full_name" class="inp2" id="hb_search_resp"/></div>
+         <div id="hb_form2"><input name="imageField" type="image" alt="search for player" src="/images/btn_player-search.gif" /></div>
+       </form>
+   </div>
+</div>
+
+<div id="topad" class="sponsor-top">
+   <div id='top_leaderboard'>
+   
+   </div>
+</div>
+
+<div style="clear: left"></div>
+
+
+
+<div id="mt" class="multitable">
+<div class="tablebg st ">
+<div class="vitals">
+<div itemscope itemtype="https://schema.org/Person" class="vw">
+<div class="v1">
+<h1 itemprop="name" class="title">Guy Lafleur</h1>
+<div class="v1-1">
+Right Wing<br />
+<span class="bdate">Born Sep 20 1951 -- </span><span class="hometown" itemprop="homeLocation">Thurso, PQ</span> <br />Died Apr 22 2022 [Age 70]<br />Height 6.00 -- Weight 185<span class="vitals_metric"> [183 cm/84 kg]</span><br />
+</div>
+</div>
+<div class="vd">
+Drafted by <a href="/ihdb/draft/teams/dr00006929.html">Montreal Canadiens</a><div>- 
+ round 1 <a href="/ihdb/draft/draft_by_pick.php?position=1"> #1</a> overall <a href="/ihdb/draft/nhl1971a.html"> 1971 NHL Amateur Draft</a></div><br /></div>
+</div>
+<div class="v1-5">
+&nbsp;
+<a href="/ihdb/cards/carddisplay.php?pid=2902" class="button sprite">&nbsp;</a> 
+<span id="div2902"><span id="but2902" class="trades sprite" onclick="sc('deals',2902)"></span></span>
+</div>
+<div class="v2">
+<img itemprop="image" alt="Guy Lafleur hockey player photo" style="border:2px outset; float:right; margin-top:5px; height:200px" onclick="ic2902.next(this)" src="/ihdb/photos/guy-lafleur-1977-45.jpg" />
+&nbsp;
+</div>
+<div class="vtr" style="clear:left" id="content2902">
+</div>
+<div class="social_container">
+</div>
+<div class="v3">
+</div>
+</div>
+<table class="sortable autostripe st reg" id="2902">
+<thead>
+<tr>
+<th colspan="3" class = "l" style="background-color:white; padding:0px;">
+</th>
+<th class="hidemob c_sec_head rtab" colspan="6">Regular Season</th>
+<th class="more hidedesk c_sec_head rtab" >More -></th>
+<th class="hidemob c_sec_head rtab" colspan="5">Playoffs</th></tr>
+<tr class="c_sort_head">
+<th class="l">Season</th>
+<th class="l">Team</th>
+<th class="l">Lge</th>
+<th>GP</th>
+<th class="hidemob">G</th>
+<th class="hidemob">A</th>
+<th class="hidemob">Pts</th>
+<th class="hidemob">PIM</th>
+<th class="hidemob">+/-</th>
+<th class="hidemob">GP</th>
+<th class="hidemob">G</th>
+<th class="hidemob">A</th>
+<th class="hidemob">Pts</th>
+<th class="hidden"></th>
+<th class="hidemob">PIM</th></tr>
+</thead>
+<tbody>
+<tr class="CANJRA-1"><td class="pds l">1966-67</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0049931967.html">Quebec Jr. Aces</a></td>
+<td class="pdl l">QJAHL</td>
+<td class="pdgp">8</td>
+<td class="hidemob">1</td>
+<td class="hidemob">1</td>
+<td class="hidemob">2</td>
+<td class="hidemob">0</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidden"></td>
+</tr>
+<tr class="CANJRA-1"><td class="pds l">1967-68</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0049931968.html">Quebec Jr. Aces</a></td>
+<td class="pdl l">QJAHL</td>
+<td class="pdgp">43</td>
+<td class="hidemob">30</td>
+<td class="hidemob">19</td>
+<td class="hidemob">49</td>
+<td class="hidemob">0</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidden"></td>
+</tr>
+<tr class="CANJRA-1"><td class="pds l">1968-69</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0049931969.html">Quebec Jr. Aces</a></td>
+<td class="pdl l">QJAHL</td>
+<td class="pdgp">49</td>
+<td class="hidemob">50</td>
+<td class="hidemob">60</td>
+<td class="hidemob">110</td>
+<td class="hidemob">83</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJJUN-1"><td class="pds l">1969-70</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0013311970.html">Quebec Remparts</a> <span class="trophy">🏆<span></td>
+<td class="pdl l">QMJHL</td>
+<td class="pdgp">56</td>
+<td class="hidemob">103</td>
+<td class="hidemob">67</td>
+<td class="hidemob">170</td>
+<td class="hidemob">105</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob">15</td>
+<td class="hidemob">25</td>
+<td class="hidemob">18</td>
+<td class="hidemob">43</td>
+<td class="hidemob">34</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJJUN-1"><td class="pds l">1970-71</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0013311971.html">Quebec Remparts</a> <span class="trophy">🏆<span></td>
+<td class="pdl l">QMJHL</td>
+<td class="pdgp">62</td>
+<td class="hidemob">130</td>
+<td class="hidemob">79</td>
+<td class="hidemob">209</td>
+<td class="hidemob">135</td>
+<td class="hidemob">&nbsp;</td>
+<td class="hidemob">14</td>
+<td class="hidemob">22</td>
+<td class="hidemob">21</td>
+<td class="hidemob">43</td>
+<td class="hidemob">49</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1971-72</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451972.html">Montreal Canadiens</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">73</td>
+<td class="hidemob">29</td>
+<td class="hidemob">35</td>
+<td class="hidemob">64</td>
+<td class="hidemob">48</td>
+<td class="hidemob">27</td>
+<td class="hidemob">6</td>
+<td class="hidemob">1</td>
+<td class="hidemob">4</td>
+<td class="hidemob">5</td>
+<td class="hidemob">2</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1972-73</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451973.html">Montreal Canadiens</a> <span class="trophy">🏆<span></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">69</td>
+<td class="hidemob">28</td>
+<td class="hidemob">27</td>
+<td class="hidemob">55</td>
+<td class="hidemob">51</td>
+<td class="hidemob">15</td>
+<td class="hidemob">17</td>
+<td class="hidemob">3</td>
+<td class="hidemob">5</td>
+<td class="hidemob">8</td>
+<td class="hidemob">9</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1973-74</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451974.html">Montreal Canadiens</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">73</td>
+<td class="hidemob">21</td>
+<td class="hidemob">35</td>
+<td class="hidemob">56</td>
+<td class="hidemob">29</td>
+<td class="hidemob">9</td>
+<td class="hidemob">6</td>
+<td class="hidemob">0</td>
+<td class="hidemob">1</td>
+<td class="hidemob">1</td>
+<td class="hidemob">4</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1974-75</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451975.html">Montreal Canadiens</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">70</td>
+<td class="hidemob">53</td>
+<td class="hidemob">66</td>
+<td class="hidemob">119</td>
+<td class="hidemob">37</td>
+<td class="hidemob">53</td>
+<td class="hidemob">11</td>
+<td class="hidemob">12</td>
+<td class="hidemob">7</td>
+<td class="hidemob">19</td>
+<td class="hidemob">15</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1975-76</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451976.html">Montreal Canadiens</a> <span class="trophy">🏆<span></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">80</td>
+<td class="hidemob">56</td>
+<td class="hidemob">69</td>
+<td class="hidemob">125</td>
+<td class="hidemob">36</td>
+<td class="hidemob">68</td>
+<td class="hidemob">13</td>
+<td class="hidemob">7</td>
+<td class="hidemob">10</td>
+<td class="hidemob">17</td>
+<td class="hidemob">2</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1976-77</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451977.html">Montreal Canadiens</a> <span class="trophy">🏆<span></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">80</td>
+<td class="hidemob">56</td>
+<td class="hidemob">80</td>
+<td class="hidemob">136</td>
+<td class="hidemob">20</td>
+<td class="hidemob">89</td>
+<td class="hidemob">14</td>
+<td class="hidemob">9</td>
+<td class="hidemob">17</td>
+<td class="hidemob">26</td>
+<td class="hidemob">6</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1977-78</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451978.html">Montreal Canadiens</a> <span class="trophy">🏆<span></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">78</td>
+<td class="hidemob">60</td>
+<td class="hidemob">72</td>
+<td class="hidemob">132</td>
+<td class="hidemob">26</td>
+<td class="hidemob">73</td>
+<td class="hidemob">15</td>
+<td class="hidemob">10</td>
+<td class="hidemob">11</td>
+<td class="hidemob">21</td>
+<td class="hidemob">16</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1978-79</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451979.html">Montreal Canadiens</a> <span class="trophy">🏆<span></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">80</td>
+<td class="hidemob">52</td>
+<td class="hidemob">77</td>
+<td class="hidemob">129</td>
+<td class="hidemob">28</td>
+<td class="hidemob">56</td>
+<td class="hidemob">16</td>
+<td class="hidemob">10</td>
+<td class="hidemob">13</td>
+<td class="hidemob">23</td>
+<td class="hidemob">0</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1979-80</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451980.html">Montreal Canadiens</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">74</td>
+<td class="hidemob">50</td>
+<td class="hidemob">75</td>
+<td class="hidemob">125</td>
+<td class="hidemob">12</td>
+<td class="hidemob">40</td>
+<td class="hidemob">3</td>
+<td class="hidemob">3</td>
+<td class="hidemob">1</td>
+<td class="hidemob">4</td>
+<td class="hidemob">0</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1980-81</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451981.html">Montreal Canadiens</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">51</td>
+<td class="hidemob">27</td>
+<td class="hidemob">43</td>
+<td class="hidemob">70</td>
+<td class="hidemob">29</td>
+<td class="hidemob">24</td>
+<td class="hidemob">3</td>
+<td class="hidemob">0</td>
+<td class="hidemob">1</td>
+<td class="hidemob">1</td>
+<td class="hidemob">2</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1981-82</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451982.html">Montreal Canadiens</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">66</td>
+<td class="hidemob">27</td>
+<td class="hidemob">57</td>
+<td class="hidemob">84</td>
+<td class="hidemob">24</td>
+<td class="hidemob">33</td>
+<td class="hidemob">5</td>
+<td class="hidemob">2</td>
+<td class="hidemob">1</td>
+<td class="hidemob">3</td>
+<td class="hidemob">4</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1982-83</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451983.html">Montreal Canadiens</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">68</td>
+<td class="hidemob">27</td>
+<td class="hidemob">49</td>
+<td class="hidemob">76</td>
+<td class="hidemob">12</td>
+<td class="hidemob">6</td>
+<td class="hidemob">3</td>
+<td class="hidemob">0</td>
+<td class="hidemob">2</td>
+<td class="hidemob">2</td>
+<td class="hidemob">2</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1983-84</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451984.html">Montreal Canadiens</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">80</td>
+<td class="hidemob">30</td>
+<td class="hidemob">40</td>
+<td class="hidemob">70</td>
+<td class="hidemob">19</td>
+<td class="hidemob">-14</td>
+<td class="hidemob">12</td>
+<td class="hidemob">0</td>
+<td class="hidemob">3</td>
+<td class="hidemob">3</td>
+<td class="hidemob">5</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1984-85</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000451985.html">Montreal Canadiens</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">19</td>
+<td class="hidemob">2</td>
+<td class="hidemob">3</td>
+<td class="hidemob">5</td>
+<td class="hidemob">10</td>
+<td class="hidemob">-3</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidden"></td>
+</tr>
+<tr class="OTHER-1"><td class="pds l">1985-86</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0010461986.html">Did Not Play</a></td>
+<td class="pdl l">Ind</td>
+<td class="hidedesk">--</td>
+<td class="c hidemob" colspan="6">Statistics Unavailable</td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidden"></td>
+</tr>
+<tr class="OTHER-1"><td class="pds l">1986-87</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0010461987.html">Did Not Play</a></td>
+<td class="pdl l">Ind</td>
+<td class="hidedesk">--</td>
+<td class="c hidemob" colspan="6">Statistics Unavailable</td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidden"></td>
+</tr>
+<tr class="OTHER-1"><td class="pds l">1987-88</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0010461988.html">Did Not Play</a></td>
+<td class="pdl l">Ind</td>
+<td class="hidedesk">--</td>
+<td class="c hidemob" colspan="6">Statistics Unavailable</td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidemob"></td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1988-89</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000481989.html">New York Rangers</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">67</td>
+<td class="hidemob">18</td>
+<td class="hidemob">27</td>
+<td class="hidemob">45</td>
+<td class="hidemob">12</td>
+<td class="hidemob">1</td>
+<td class="hidemob">4</td>
+<td class="hidemob">1</td>
+<td class="hidemob">0</td>
+<td class="hidemob">1</td>
+<td class="hidemob">0</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1989-90</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000471990.html">Quebec Nordiques</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">39</td>
+<td class="hidemob">12</td>
+<td class="hidemob">22</td>
+<td class="hidemob">34</td>
+<td class="hidemob">4</td>
+<td class="hidemob">-15</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidden"></td>
+</tr>
+<tr class="MAJOR-1"><td class="pds l">1990-91</td>
+<td class="pdt l hhw "><a href="/ihdb/stats/leagues/seasons/teams/0000471991.html">Quebec Nordiques</a></td>
+<td class="pdl l">NHL</td>
+<td class="pdgp">59</td>
+<td class="hidemob">12</td>
+<td class="hidemob">16</td>
+<td class="hidemob">28</td>
+<td class="hidemob">2</td>
+<td class="hidemob">-10</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidemob">--</td>
+<td class="hidden"></td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="c_sec_foot">
+<td class=""></td><td class="l">NHL Totals</td>
+<td class=""></td>
+<td class="">1126</td>
+<td class="hidemob">560</td>
+<td class="hidemob">793</td>
+<td class="hidemob">1353</td>
+<td class="hidemob">399</td>
+<td class="hidemob"></td>
+<td class="hidemob">128</td>
+<td class="hidemob">58</td>
+<td class="hidemob">76</td>
+<td class="hidemob">134</td>
+<td class="hidemob">67</td>
+<td class="hidden"></td>
+</tr>
+</tfoot>
+</table>
+<p class="desktop"> </p><div class="full_botlb2">
+<div id="player_bottom_leaderboard_2"></div>
+
+</div>
+<div class="title">Awards</div><table class="sortable autostripe">
+<thead>
+<tr class="c_sort_head">
+<th class="l">Year</th>
+<th class="l">League</th>
+<th class="l">Award</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td  class="l">1975-76</td>
+<td  class="l">NHL</td>
+<td  class="l"><a href="/ihdb/awards/awarddetail.php?award_id=1">Art Ross Trophy</a></td>
+</tr>
+<tr>
+<td  class="l">1975-76</td>
+<td  class="l">NHL</td>
+<td  class="l"><a href="/ihdb/awards/awarddetail.php?award_id=15">Lester B. Pearson Trophy</a></td>
+</tr>
+<tr>
+<td  class="l">1976-77</td>
+<td  class="l">NHL</td>
+<td  class="l"><a href="/ihdb/awards/awarddetail.php?award_id=1">Art Ross Trophy</a></td>
+</tr>
+<tr>
+<td  class="l">1976-77</td>
+<td  class="l">NHL</td>
+<td  class="l"><a href="/ihdb/awards/awarddetail.php?award_id=2">Hart Memorial Trophy</a></td>
+</tr>
+<tr>
+<td  class="l">1976-77</td>
+<td  class="l">NHL</td>
+<td  class="l"><a href="/ihdb/awards/awarddetail.php?award_id=9">Conn Smythe Trophy</a></td>
+</tr>
+<tr>
+<td  class="l">1976-77</td>
+<td  class="l">NHL</td>
+<td  class="l"><a href="/ihdb/awards/awarddetail.php?award_id=15">Lester B. Pearson Trophy</a></td>
+</tr>
+<tr>
+<td  class="l">1977-78</td>
+<td  class="l">NHL</td>
+<td  class="l"><a href="/ihdb/awards/awarddetail.php?award_id=1">Art Ross Trophy</a></td>
+</tr>
+<tr>
+<td  class="l">1977-78</td>
+<td  class="l">NHL</td>
+<td  class="l"><a href="/ihdb/awards/awarddetail.php?award_id=2">Hart Memorial Trophy</a></td>
+</tr>
+<tr>
+<td  class="l">1977-78</td>
+<td  class="l">NHL</td>
+<td  class="l"><a href="/ihdb/awards/awarddetail.php?award_id=15">Lester B. Pearson Trophy</a></td>
+</tr>
+</tbody></table>
+
+<div class="full_botlb3">
+</div>
+</div>
+
+<div style="margin-top: -17px; border-top: none; border-top-left-radius: 0px; border-top-right-radius: 0px;" id="credit" class="tablebg desktop st">
+</div>
+</div>
+<div class="sponsor" id="d300_160_300">
+<div id='player_right_rectangle'></div>
+
+</div>
+<div id="related" class="tablebg">
+<h3 style="margin-top:0px; margin-bottom:0px; color:#900">Related Information</h3>
+<h4 style="margin-top:20px; margin-bottom:5px; border: solid black; border-width: 1px 0px; padding:5px 0px; color:#900">League Information</h4>
+<div style="margin-bottom:10px">Guy Lafleur played in four leagues over the course of his career. Learn more about them from these League History pages.</div><div class="ti" ><a href="/ihdb/stats/leagues/199.html">Quebec Junior A Hockey League</a></div>
+<div class="ti" ><a href="/ihdb/stats/leagues/197.html">Quebec Maritimes Junior Hockey League</a></div>
+<div class="ti" ><a href="/ihdb/stats/leagues/141.html">National Hockey League</a></div>
+<div class="ti" ><a href="/ihdb/stats/leagues/106.html">Independent Teams</a></div>
+<h4 style="margin-top:20px; margin-bottom:5px; border: solid black; border-width: 1px 0px; padding:5px 0px; color:#900">Team Information</h4>
+<div style="margin-bottom:10px">If you would like to know more about any of the six teams that Guy Lafleur played for during his career, visit these Team History pages.</div><div class="ti"><a href="/stte/quebec-jr.-aces-9264.html">Quebec Jr. Aces</a></div>
+<div class="ti"><a href="/stte/quebec-remparts-7588.html">Quebec Remparts</a></div>
+<div class="ti"><a href="/stte/montreal-canadiens-6929.html">Montreal Canadiens</a></div>
+<div class="ti"><a href="/stte/did-not-play-5497.html">Did Not Play</a></div>
+<div class="ti"><a href="/stte/new-york-rangers-7089.html">New York Rangers</a></div>
+<div class="ti"><a href="/stte/quebec-nordiques-7584.html">Quebec Nordiques</a></div>
+</div>
+
+
+
+  <div id="footer_bar">
+     <div id="footer_cell">
+        <a href="/" class="revlink">Home</a> | <a href="/advertise.html" class="revlink">Advertise</a> | <a href="/feedback.html" class="revlink">Feedback</a> | <a href="/copyright.html" class="revlink">Usage</a> | <a href="/privacy.html" class="revlink">Privacy</a> | <a href="/faq.html" class="revlink">FAQ</a> | <a href="/links.html" class="revlink">Links</a> | <a href="/credits.html" class="revlink">Credits</a> | <a href="/help.html" class="revlink">Help!</a>
+     </div>
+     <div id="bottom_cell">
+        <div style="float:left"><a href="/"><img src="/images/logo_small.gif" alt="hockeyDB.com" width="115" height="38" style="border:0;" /></a> &nbsp; &nbsp; Copyright 1998-2026 hockeyDB.com. All rights reserved.</div>
+     </div>
+  </div>
+
+
+
+
+
+<noscript>
+<a href="https://www.quantcast.com/p-bf8ND2mCqtl_o" target="_blank"><img src="https://pixel.quantserve.com/pixel/p-bf8ND2mCqtl_o.gif" style="display: none; border:0;" height="1" width="1" alt="Quantcast"/></a>
+</noscript>
+
+
+
+
+</body>
+</html>
+
+```
+The JSON schema is as follows:```json
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "season": {
+        "type": "string"
+      },
+      "team": {
+        "type": "string"
+      },
+      "gp": {
+        "type": "integer"
+      },
+      "g": {
+        "type": "integer"
+      },
+      "a": {
+        "type": "integer"
+      },
+      "pts": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "season",
+      "team",
+      "gp",
+      "g",
+      "a",
+      "pts"
+    ]
+  }
+}
+```

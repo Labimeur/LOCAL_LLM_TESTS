@@ -32,15 +32,29 @@ The file used here is `ReaderLM-v2.Q6_K.gguf` (about 1.36 GB) from [mradermacher
 ```text
 curl.exe -L --fail --retry 3 -C - --output "$env:TEMP\readerlm\ReaderLM-v2.Q6_K.gguf" "https://huggingface.co/mradermacher/ReaderLM-v2-GGUF/resolve/main/ReaderLM-v2.Q6_K.gguf"
 cmd /c "echo Y| lms import %TEMP%\readerlm\ReaderLM-v2.Q6_K.gguf --yes --user-repo mradermacher/ReaderLM-v2-GGUF"
-lms load mradermacher/ReaderLM-v2-GGUF --context-length 8192 --identifier readerlm-v2 --yes
+lms load mradermacher/ReaderLM-v2-GGUF --context-length 512768 --gpu max --identifier readerlm-v2 --yes
 lms server start
 ```
 
-The `echo Y` is required the first time. `--yes` hides the move warning and still leaves the "Do you wish to continue?" prompt. `lms import` then moves the file into `C:\Users\Recovery\.lmstudio\models`. `--context-length 8192` covers the JSON sample (about 4,700 prompt tokens plus 2048 new tokens). The API identifier is `readerlm-v2`. `lms server status` should report port 1234 before the Python scripts run.
+The `echo Y` is required the first time. `--yes` hides the move warning and still leaves the "Do you wish to continue?" prompt. `lms import` then moves the file into `C:\Users\Recovery\.lmstudio\models`. The API identifier is `readerlm-v2`. `lms server status` should report port 1234 before the Python scripts run.
 
 If the model search in the app starts working later, Ctrl+Shift+M and the same Hugging Face URL is the other way to download Q6_K or Q8_0.
 
-The full model card lists a 512K context. A GGUF loaded in LM Studio only has the context length you set, and the KV cache has to fit in RAM or VRAM. A dry run of the JSON sample produces a user message of about 19,000 characters, roughly 4,700 tokens. With the script's default of 2048 new tokens, a context length of 8192 covers that run. Use 16384 if you convert the same page to Markdown (`--max-tokens 4096`) or if LM Studio reports that the prompt does not fit.
+The model card and the GGUF both list a maximum context of 512768 tokens. Hugging Face `config.json` sets `max_position_embeddings` to 512768 and `rope_theta` to 5000000, with no extra RoPE scaling, so 512768 is the trained window, not an extrapolation. LM Studio only allocates the length you pass to `lms load`.
+
+`lms load --estimate-only` overstates memory on this GPU. Measured use on the RTX 5090 Laptop (24 GB, Q6_K, `--gpu max`) is lower:
+
+| Context | LM Studio estimate | GPU memory in use |
+| --- | --- | --- |
+| 8192 | about 2 GB | 4.5 GB |
+| 262144 | 16.03 GB | 11.8 GB |
+| 512768 | 29.91 GB | 19.1 GB |
+
+`--context-length 512768` is the loaded window: the model's full context, 64 times the previous 8192, with about 4.4 GB of the 24 GB left. The "GPU memory in use" column includes the rest of the desktop, not just the model. `--gpu max` keeps weights and the KV cache on the GPU. A one-token reply at this length still returns in under a tenth of a second, so the cache is not spilling into shared memory.
+
+LM Studio's own default (`defaultContextLength` in `%USERPROFILE%\.lmstudio\settings.json`) was 4096. That value is now 512768. Loading the model from the app while the default is still 4096 replaces the full window. If the app is open when that file is edited, quit and reopen LM Studio so it reads the new default, then load with the command above.
+
+A dry run of the JSON sample produces a user message of about 19,000 characters, roughly 4,700 tokens. 512768 covers that run and much larger pages.
 
 Architecture in the GGUF header is `qwen2`. Leave the chat template on. The template is what inserts the Jina system line and the `<|im_start|>assistant` turn.
 
