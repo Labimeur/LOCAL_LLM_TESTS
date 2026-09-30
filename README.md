@@ -31,7 +31,13 @@ python scripts\test_markdown.py
 
 `--dry-run` cleans the sample, writes the prompt, and does not call the server. A live JSON run writes a new folder under `ReaderLM_v2/output/` with the prompt, the raw reply, parsed JSON when it can be extracted, and a performance report (timing, tokens per second, time to first token, and memory).
 
-Each finished run also refreshes the local performance dashboard. Open `ReaderLM_v2/html/performance-dashboard/index.html` in a browser. To rebuild its data without running a test:
+Each finished run also refreshes the local performance dashboard. Start it with:
+
+```text
+python ReaderLM_v2\html\performance-dashboard\serve.py
+```
+
+That serves `http://127.0.0.1:8765/index.html` and opens the page. To rebuild its data without running a test:
 
 ```text
 python ReaderLM_v2\html\performance-dashboard\refresh_data.py
